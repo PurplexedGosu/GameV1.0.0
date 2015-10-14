@@ -8,6 +8,7 @@ import greenfoot.*;
 public class Kyobashi extends World
 {
     private int delay = 11;    //Constructor for objects of class Kyobashi
+    GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
     public Kyobashi()
     {    
         super(750, 750, 1); 
@@ -42,10 +43,36 @@ public class Kyobashi extends World
     
     public void act()
    {
+       backgroundTheme.playLoop(); 
        if (Greenfoot.isKeyDown("j")&&delay>10) 
        {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
            Menu menu = new Menu(getThisWorld());
            Greenfoot.setWorld(menu);
+           delay = 0;
+           
+       }
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
+           Inferno inferno = new Inferno(getThisWorld());
+           Greenfoot.setWorld(inferno);
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("k")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
+           Cinematic cinematic = new Cinematic(getThisWorld());
+           Greenfoot.setWorld(cinematic);
            delay = 0;
        }
        delay++;

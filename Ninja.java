@@ -8,8 +8,10 @@ import greenfoot.*;
 
 public class Ninja extends Heroes
 {
-    static int speedMultiplier = 2;
+    private int speedMultiplier = 2;
     private int delay = 21;
+    private double dashes = 5;
+    private boolean cooldown = false;
     private GreenfootImage up1 = new GreenfootImage("Ninja/Ninja Up/ninja_sprites_up_stance_left_step2.png");
     private GreenfootImage up2 = new GreenfootImage("Ninja/Ninja Up/ninja_sprites_up_stance_right_step2.png");
     
@@ -21,6 +23,9 @@ public class Ninja extends Heroes
     
     private GreenfootImage right1 = new GreenfootImage("Ninja/Ninja Right/ninja_sprites_right_stance_left_step2.png");
     private GreenfootImage right2 = new GreenfootImage("Ninja/Ninja Right/ninja_sprites_right_stance2.png");
+    
+    //GreenfootSound shurikenSound = new GreenfootSound("shurikensound.mp3");
+    
     public Ninja()
     {
         
@@ -33,16 +38,47 @@ public class Ninja extends Heroes
         moveRight(speedMultiplier, right1, right2);
         hitLightning();
         shootShuriken();
+        dashCooldown();
+        dash();
     }    
     // Melee Attack
+    public void dashCooldown()
+    {
+        if (dashes <= 5)
+        {
+        dashes+= 0.015;
+        }
+        if (dashes < 1)
+        {
+            cooldown = false;
+        }
+        if (dashes > 5)
+        {
+            cooldown = true;
+        }
+    }
+    public void dash()
+    {
+        if (useF() == true && dashes >= 1 && cooldown == true)
+        {
+            speedMultiplier = 20;
+            dashes-= 0.25;
+        }
+        else
+        {
+            speedMultiplier = 2;
+        }
+    }
     public void hitLightning()
     {
-        if (useF() == true)
+        if (useG() == true)
         {
             Lightning l1 = new Lightning();
             getWorld().addObject(l1, getX(), getY());
             l1.setRotation(getRotation() -90);
+            
         }
+        
     }
     // Ranged Attack
     public void shootShuriken()
@@ -53,6 +89,7 @@ public class Ninja extends Heroes
             getWorld().addObject(s1, getX(), getY());
             s1.setRotation(getRotation() -90);
             delay = 0;
+            //shurikenSound.play();
         }
         delay++;
     }

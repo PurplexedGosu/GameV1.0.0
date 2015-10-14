@@ -15,7 +15,7 @@ public class RangedMinion extends NPCS
     }
     public void moveUp(GreenfootImage up1, GreenfootImage up2, GreenfootImage up3)
     {
-        if (Greenfoot.isKeyDown("w"))
+        if (Greenfoot.isKeyDown("up"))
         {
             setLocation(getX(), getY() - 2);
             //Put rotation within if statements instead of here for smoother animation
@@ -44,7 +44,7 @@ public class RangedMinion extends NPCS
     }
     public void moveDown(GreenfootImage down1, GreenfootImage down2, GreenfootImage down3)
     {
-        if (Greenfoot.isKeyDown("s"))
+        if (Greenfoot.isKeyDown("down"))
         {
             setLocation(getX(), getY() + 2);
             //Put rotation within if statements instead of here for smoother animation
@@ -73,7 +73,7 @@ public class RangedMinion extends NPCS
     }
     public void moveLeft(GreenfootImage left1, GreenfootImage left2, GreenfootImage left3)
     {
-        if (Greenfoot.isKeyDown("a"))
+        if (Greenfoot.isKeyDown("left"))
         {
             setLocation(getX() - 2, getY());
             //Put rotation within if statements instead of here for smoother animation
@@ -102,7 +102,7 @@ public class RangedMinion extends NPCS
     }
     public void moveRight(GreenfootImage right1, GreenfootImage right2, GreenfootImage right3)
     {
-        if (Greenfoot.isKeyDown("d"))
+        if (Greenfoot.isKeyDown("right"))
         {
             setLocation(getX() + 2, getY());
             //Put rotation within if statements instead of here for smoother animation

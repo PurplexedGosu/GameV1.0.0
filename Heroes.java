@@ -106,11 +106,14 @@ public class Heroes extends Actor
             frame+=0.25;
         }
     }
-  
-    //Melee Attack; Functionality of F key
     public boolean useF()
     {
         return (Greenfoot.isKeyDown("f"));
+    }
+    //Melee Attack; Functionality of G key
+    public boolean useG()
+    {
+        return (Greenfoot.isKeyDown("g"));
     }
     
     //Ranged Attack; Functionality of spacebar

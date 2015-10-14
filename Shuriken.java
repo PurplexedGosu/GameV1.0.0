@@ -8,15 +8,17 @@ import greenfoot.*;
  */
 public class Shuriken extends Projectiles
 {
+    GreenfootSound sliceSound = new GreenfootSound("slice.mp3");
     public void act() 
     {
         Actor NPCS = getOneIntersectingObject(NPCS.class);
             if (NPCS!=null){
                 getWorld().removeObject(NPCS);
                 getWorld().removeObject(this);
+                sliceSound.play();
             }
             else if (atWorldEdge())
             getWorld().removeObject(this);
-         move(3);
+         move(6);
     }    
 }

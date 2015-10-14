@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.params=kyo
+comment0.params=menu
 comment0.target=Menu(Kyobashi)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Menu.\r\n\ \r\n
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Menu.\n\ \n
 comment1.params=
 comment1.target=void\ act()
 numComments=2
