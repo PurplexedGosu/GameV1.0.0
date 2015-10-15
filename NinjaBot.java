@@ -1,0 +1,140 @@
+import greenfoot.*;
+
+/**
+ * Write a description of class OldMan here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class NinjaBot extends Animated
+{
+    private double time = 0;
+
+    private GreenfootImage up1 = new GreenfootImage("Ninja/Ninja Up/ninja_sprites_up_stance_left_step2.png");
+    private GreenfootImage up2 = new GreenfootImage("Ninja/Ninja Up/ninja_sprites_up_stance_right_step2.png");
+    
+    private GreenfootImage down1 = new GreenfootImage("Ninja/Ninja Down/ninja_sprites_down_stance_left_step2.png");
+    private GreenfootImage down2 = new GreenfootImage("Ninja/Ninja Down/ninja_sprites_down_stance_right_step2.png");
+    
+    private GreenfootImage left1 = new GreenfootImage("Ninja/Ninja Left/ninja_sprites_left_stance_left_step2.png");
+    private GreenfootImage left2 = new GreenfootImage("Ninja/Ninja Left/ninja_sprites_left_stance2.png");
+    
+    private GreenfootImage right1 = new GreenfootImage("Ninja/Ninja Right/ninja_sprites_right_stance_left_step2.png");
+    private GreenfootImage right2 = new GreenfootImage("Ninja/Ninja Right/ninja_sprites_right_stance2.png");
+    
+    private double frame = 1;
+    public NinjaBot(/*Counter healthCounter*/)
+    {
+        //counter1 = healthCounter;
+    }
+
+    // Heroes Move
+    public void act()
+    {
+        time += 0.01602;
+        if (time >= 4.5 && time <= 5.5){
+            moveUp(up1, up2);
+        }
+        if (time >= 5.5 && time <= 11.25){
+            moveRight(right1, right2);
+        }
+        if (time >= 11.25 && time <= 11.35)
+        {
+            moveLeft(left1, left2);
+        }
+        if (time >= 22 && time <= 50)
+        {
+            moveRight(right1, right2);
+        }
+    }
+
+    public void moveUp(GreenfootImage up1, GreenfootImage up2)
+    {
+        setLocation(getX(), getY() - 1);
+        //Put rotation within if statements instead of here for smoother animation
+        if (frame == 1)
+        {
+            setImage(up1);
+            setRotation(0);
+        }
+        else if (frame == 3)
+        {
+            setImage(up2);
+            setRotation(0);
+        }
+        else if (frame == 5)
+         {
+            frame = 1;
+            return;
+        }
+        frame+=0.25;
+        
+    }
+    public void moveDown(GreenfootImage down1, GreenfootImage down2)
+    {
+        setLocation(getX(), getY() + 1);
+        //Put rotation within if statements instead of here for smoother animation
+        if (frame == 1)
+        {
+            setRotation(180);
+            setImage(down1);
+        }
+        else if (frame == 3)
+        {
+            setRotation(180);
+            setImage(down2);
+        }
+        else if (frame == 5)
+         {
+            frame = 1;
+            return;
+        }
+        frame+=0.25;
+    }
+    public void moveLeft(GreenfootImage left1, GreenfootImage left2)
+    {
+        
+            setLocation(getX() - 1, getY());
+            //Put rotation within if statements instead of here for smoother animation
+            if (frame == 1)
+            {
+                setRotation(-90);
+                setImage(left1);
+            }
+            else if (frame == 3)
+            {
+                setRotation(-90);
+                setImage(left2);
+            }
+            else if (frame == 5)
+             {
+                frame = 1;
+                return;
+            }
+            frame+=0.25;
+        
+    }
+    public void moveRight(GreenfootImage right1, GreenfootImage right2)
+    {
+        
+            setLocation(getX() + 1, getY());
+            //Put rotation within if statements instead of here for smoother animation
+            if (frame == 1)
+            {
+                setRotation(90);
+                setImage(right1);
+            }
+            else if (frame == 3)
+            {
+                setRotation(90);
+                setImage(right2);
+            }
+            else if (frame == 5)
+             {
+                frame = 1;
+                return;
+            }
+            frame+=0.25;
+        
+    }
+}
