@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=speedMultiplier\ up1\ up2
+comment0.target=void\ moveUp(int,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment1.params=speedMultiplier\ down1\ down2
+comment1.target=void\ moveDown(int,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment10.params=
+comment10.target=void\ act()
+comment2.params=speedMultiplier\ left1\ left2
+comment2.target=void\ moveLeft(int,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment3.params=speedMultiplier\ right1\ right2
+comment3.target=void\ moveRight(int,\ greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment4.params=
+comment4.target=boolean\ canMoveRight()
+comment5.params=
+comment5.target=boolean\ canMoveLeft()
+comment6.params=
+comment6.target=boolean\ canMoveUp()
+comment7.params=
+comment7.target=boolean\ canMoveDown()
+comment8.params=
+comment8.target=boolean\ useF()
+comment9.params=
+comment9.target=boolean\ useSpacebar()
+numComments=11
