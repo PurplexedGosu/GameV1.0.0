@@ -12,7 +12,7 @@ public class Heroes extends Actor
     // Heroes Move
     public void moveUp(int speedMultiplier, GreenfootImage up1, GreenfootImage up2)
     {
-        if (Greenfoot.isKeyDown("w"))
+        if (Greenfoot.isKeyDown("w")&&canMoveUp())
         {
             setLocation(getX(), getY() - 1*speedMultiplier);
             //Put rotation within if statements instead of here for smoother animation
@@ -36,7 +36,7 @@ public class Heroes extends Actor
     }
     public void moveDown(int speedMultiplier, GreenfootImage down1, GreenfootImage down2)
     {
-        if (Greenfoot.isKeyDown("s"))
+        if (Greenfoot.isKeyDown("s")&&canMoveDown())
         {
             setLocation(getX(), getY() + 1*speedMultiplier);
             //Put rotation within if statements instead of here for smoother animation
@@ -60,7 +60,7 @@ public class Heroes extends Actor
     }
     public void moveLeft(int speedMultiplier, GreenfootImage left1, GreenfootImage left2)
     {
-        if (Greenfoot.isKeyDown("a"))
+        if (Greenfoot.isKeyDown("a")&&canMoveLeft())
         {
             setLocation(getX() - 1*speedMultiplier, getY());
             //Put rotation within if statements instead of here for smoother animation
@@ -84,7 +84,7 @@ public class Heroes extends Actor
     }
     public void moveRight(int speedMultiplier, GreenfootImage right1, GreenfootImage right2)
     {
-        if (Greenfoot.isKeyDown("d"))
+        if (Greenfoot.isKeyDown("d")&&canMoveRight())
         {
             setLocation(getX() + 1*speedMultiplier, getY());
             //Put rotation within if statements instead of here for smoother animation
@@ -106,7 +106,51 @@ public class Heroes extends Actor
             frame+=0.25;
         }
     }
+    //Bill's detection
+    public boolean canMoveRight()
+    {
+        boolean good = true;
+        for(int i = -20; i<21; i++)
+        {
+            if(getOneObjectAtOffset(25,i,Obstacles.class)!=null)
+                good = false;
+        }
+        return good;
+    }
+    
+    public boolean canMoveLeft()
+    {
+        boolean good = true;
+        for(int i = -20; i<21; i++)
+        {
+            if(getOneObjectAtOffset(-25,i,Obstacles.class)!=null)
+                good = false;
+        }
+        return good;
+    }
   
+    public boolean canMoveUp()
+    {
+        boolean good = true;
+        for(int i = -20; i<21; i++)
+        {
+            if(getOneObjectAtOffset(i,-25,Obstacles.class)!=null)
+                good = false;
+        }
+        return good;
+    }
+    
+    public boolean canMoveDown()
+    {
+        boolean good = true;
+        for(int i = -20; i<21; i++)
+        {
+            if(getOneObjectAtOffset(i,25,Obstacles.class)!=null)
+                good = false;
+        }
+        return good;
+    }
+    
     //Melee Attack; Functionality of F key
     public boolean useF()
     {

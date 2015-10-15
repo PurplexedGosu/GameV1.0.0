@@ -23,10 +23,13 @@ public class Ninja extends Heroes
     private GreenfootImage right2 = new GreenfootImage("Ninja/Ninja Right/ninja_sprites_right_stance2.png");
     public Ninja()
     {
-        
+        GreenfootImage image = getImage();
+        image.scale(40, 40);
+        setImage(image);
     }
     public void act() 
     {
+        
         moveUp(speedMultiplier, up1, up2);
         moveDown(speedMultiplier, down1, down2);
         moveLeft(speedMultiplier, left1, left2);
@@ -34,15 +37,35 @@ public class Ninja extends Heroes
         hitLightning();
         shootShuriken();
     }    
-    // Melee Attack
+    // Melee Attack, Bill's
     public void hitLightning()
     {
-        if (useF() == true)
+        if (useF() == true&&delay>20)
         {
             Lightning l1 = new Lightning();
-            getWorld().addObject(l1, getX(), getY());
-            l1.setRotation(getRotation() -90);
+            if(getImage()==up1||getImage()==up2)
+            {
+                getWorld().addObject(l1, getX(), getY()-20);
+                l1.setRotation(getRotation() -90);          
+            }
+            if(getImage()==down1||getImage()==down2)
+            {
+                getWorld().addObject(l1, getX(), getY()+20);
+                l1.setRotation(getRotation() -90);
+            }
+            if(getImage()==left1||getImage()==left2)
+            {
+                getWorld().addObject(l1, getX()-20, getY());
+                l1.setRotation(getRotation() -90);
+            }
+            if(getImage()==right1||getImage()==right2)
+            {
+                getWorld().addObject(l1, getX()+20, getY());
+                l1.setRotation(getRotation() -90);
+            }
+            delay = 0;
         }
+        delay++;
     }
     // Ranged Attack
     public void shootShuriken()
