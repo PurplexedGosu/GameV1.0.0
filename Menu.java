@@ -30,7 +30,7 @@ public class Menu extends World
     
     public void act()
     {
-          menuTheme.setVolume(100);
+          menuTheme.setVolume(75);
           menuTheme.playLoop(); 
            if (Greenfoot.isKeyDown("j")&&delay>10) 
            {

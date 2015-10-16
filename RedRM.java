@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class RedRangedMinion here.
@@ -31,9 +32,23 @@ public class RedRM extends RangedMinion //RM Stands for Ranged Minion
     }
     public void act() 
     {
+        /*
         moveUp(up1, up2, up3);
         moveDown(down1, down2, down3);
         moveLeft(left1, left2, left3);
         moveRight(right1, right2, right3);
+        */
+       detect();
     }    
+    public void detect()
+    {
+        List<Ninja> list = getObjectsInRange(200, Ninja.class);
+        if (list.size()>0)
+        {
+            turnTowards(list.get(0).getX(), list.get(0).getY());
+            moveRight(right1, right2, right3);
+            move(1);
+        }
+               
+    }
 }

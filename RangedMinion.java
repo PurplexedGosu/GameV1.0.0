@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class RangedMinion here.
@@ -127,6 +128,15 @@ public class RangedMinion extends NPCS
                 return;
             }
             frame+=0.25;
+        }
+    }
+    public void detect()
+    {
+        List<Ninja> list = getObjectsInRange(200, Ninja.class);
+        if (list.size()>0)
+        {
+            turnTowards(list.get(0).getX(), list.get(0).getY());
+            move(1);
         }
     }
 }

@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class Shuriken extends Projectiles
 {
+    private int st = 0;
     GreenfootSound sliceSound = new GreenfootSound("slice.mp3");
     public void act() 
     {
@@ -21,5 +22,9 @@ public class Shuriken extends Projectiles
             else if (atWorldEdge())
             getWorld().removeObject(this);
          move(6);
+         st++;
+         if (st >40){
+                getWorld().removeObject(this);
+            }
     }    
 }

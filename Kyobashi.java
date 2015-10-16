@@ -53,7 +53,7 @@ public class Kyobashi extends World
     public void act()
    {
        backgroundTheme.setVolume(65);
-       backgroundTheme.playLoop(); 
+       //backgroundTheme.playLoop(); 
        if (Greenfoot.isKeyDown("j")&&delay>10) 
        {
            if(backgroundTheme.isPlaying())
