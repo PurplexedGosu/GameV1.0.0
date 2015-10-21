@@ -14,6 +14,15 @@ public class RangedMinion extends NPCS
     public void act() 
     {
     }
+    public void patrolHorizontal(int distance)
+    {
+        
+    }
+    public void patrolVertical(int distance)
+    {
+        
+    }
+    
     public void moveUp(GreenfootImage up1, GreenfootImage up2, GreenfootImage up3)
     {
         if (Greenfoot.isKeyDown("up"))

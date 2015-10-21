@@ -20,9 +20,17 @@ public class Kyobashi extends World
 
     public void createWorld()
     {
-        //Creates the Ninja Hero
+        //Creates the Ninja Hero [Sean]
         n1 = new Ninja();
         addObject(n1, 100,400);
+        // Health [Sean]
+        Counter healthCounter = new Counter("Health: ");
+        addObject(healthCounter, 70, 730);
+        healthCounter.setValue(100);
+        // Shurikens [Sean]
+        Counter shurikenCounter = new Counter("Shurikens: ");
+        addObject(shurikenCounter, 225, 730);
+        shurikenCounter.setValue(6);
         
         
     }

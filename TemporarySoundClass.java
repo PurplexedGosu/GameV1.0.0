@@ -10,7 +10,6 @@ import greenfoot.*;
 // This class was made to experiment with time
 public class TemporarySoundClass extends Actor
 {
-    private Counter counter;
     private double virtualTime = 0;
     private boolean isThemeSong = false;
     private boolean isThemeSong2 = false;

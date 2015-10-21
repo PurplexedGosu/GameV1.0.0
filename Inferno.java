@@ -10,6 +10,8 @@ public class Inferno extends World
 {
     private Kyobashi inferno;
     private int delay = 0;
+    private Counter healthCounter;
+    private Counter shurikenCounter;
     /**
      * Constructor for objects of class Menu.
      * 
