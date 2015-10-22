@@ -10,6 +10,7 @@ public class Kyobashi extends World
     private int delay = 11;    //Constructor for objects of class Kyobashi
     private Ninja n1;
     GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
+    Inferno inferno;
     public Kyobashi()
     {    
         super(750, 750, 1); 
@@ -32,6 +33,8 @@ public class Kyobashi extends World
         addObject(shurikenCounter, 225, 730);
         shurikenCounter.setValue(6);
         
+        // Each fence is 50x50
+        // Fence fence = new Fence();
         
     }
 
@@ -79,7 +82,7 @@ public class Kyobashi extends World
            {
                backgroundTheme.pause();
            }
-           Inferno inferno = new Inferno(getThisWorld());
+           inferno = new Inferno(n1);
            Greenfoot.setWorld(inferno);
            delay = 0;
        }
@@ -104,5 +107,10 @@ public class Kyobashi extends World
    public Ninja getNinja()
    {
        return n1;
+   }
+   public void infernostart()
+   {
+        inferno = new Inferno(n1);
+        Greenfoot.setWorld(inferno);
    }
 }

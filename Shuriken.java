@@ -22,6 +22,7 @@ public class Shuriken extends Projectiles
             else if (atWorldEdge())
             getWorld().removeObject(this);
          st++;
+
          if (st >= 0 && st < 12)
          {
              move (8);
@@ -29,49 +30,28 @@ public class Shuriken extends Projectiles
          else if (st >= 12 && st < 24)
          {
              move(7);
-             turn(1);
+             //turn(1);
          }
          else if (st >= 24 && st < 36)
          {
              move(6);
-             turn(-2);
+             //turn(-2);
          }
          else if (st >= 36 && st < 48)
          {
              move(5);
-             turn(1);
+             //turn(1);
          }
          else if (st >= 48 && st < 54)
          {
              move(4);
-             turn(-2);
+             //turn(-2);
          }
          else if (st >= 60 && st < 72)
          {
              move(3);
-             turn(1);
-         }
-         else if (st >= 72 && st < 84)
-         {
-             move(2);
-             turn(-1);
-         }
-         else if (st > 84 && st < 140)
-         {
-             move(1);
-             turn(1);
-         }
-         else
-         {
-             move(0);
-         }
-         if (st > 114)
-         {
              getWorld().removeObject(this);
-         }
-         //if (st >70)
-         {
-             //move(-1);
+             //turn(1);
          }
          
     }    

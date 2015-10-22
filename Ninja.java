@@ -11,6 +11,14 @@ public class Ninja extends Heroes
 {
     static int speedMultiplier = 2;
     private int delay = 21;
+    // Start Hayden Variables
+    private int delay1 = 71;
+    private int ninjahp = 5;
+    private int points = 0;
+    private int meleeDamage = 0;
+    private int rangeDamage = 0;
+    private int armor = 0;
+    // End Hayden Variables
     
     private int ninjaRotation = 0;
     private GreenfootImage up1 = new GreenfootImage("Ninja/Ninja Up/ninja_sprites_up_stance_left_step2.png");
@@ -38,6 +46,8 @@ public class Ninja extends Heroes
         betaMovement(speedMultiplier, up1, up2, down1, down2, left1, left2, right1, right2);
         hitLightning();
         shootShuriken();
+        minionAttack();
+        ninjaDied();
     }    
     // Melee Attack, Bill's
     public void hitLightning()
@@ -157,4 +167,52 @@ public class Ninja extends Heroes
         }
         delay++;
     }
+    public void minionAttack()
+    {
+        delay1++;
+        if (delay1 >= 70){
+            delay1 = 0;
+           if (getOneIntersectingObject(RedRM.class) != null){
+            ninjahp--;
+           }
+        }
+    }
+    public void ninjaDied()
+    {
+        if (ninjahp <= 0)
+        {
+            Kyobashi world = (Kyobashi)getWorld();
+            world.infernostart();
+        }
+    }
+    public int getMeleeDamage()
+    {
+        return meleeDamage;
+    }
+    
+    public int getRangeDamage()
+    {
+        return rangeDamage;
+    }
+    
+    public int getArmor()
+    {
+        return armor;
+    }
+    
+    public void setMeleeDamage(int a)
+    {
+        meleeDamage = a;
+    }
+    
+    public void setRangeDamage(int a)
+    {
+        rangeDamage = a;
+    }
+    
+    public void setArmor(int a)
+    {
+        armor = a;
+    }
+
 }
