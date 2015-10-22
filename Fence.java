@@ -21,6 +21,10 @@ public class Fence extends Obstacles
     }
     public void act() 
     {
-        // Add your action code here.
+        Actor Projectiles = getOneIntersectingObject (Projectiles. class);
+        if(Projectiles!= null){
+            getWorld(). removeObject (Projectiles);
+            Actor ator= getOneIntersectingObject (Fence.class);
+        }
     }    
 }

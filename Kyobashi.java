@@ -9,6 +9,7 @@ public class Kyobashi extends World
 {
     private int delay = 11;    //Constructor for objects of class Kyobashi
     private Ninja n1;
+    private Ninja2 n2;
     GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
     Inferno inferno;
     public Kyobashi()
@@ -24,6 +25,10 @@ public class Kyobashi extends World
         //Creates the Ninja Hero [Sean]
         n1 = new Ninja();
         addObject(n1, 100,400);
+        
+        n2 = new Ninja2();
+        addObject(n2, 350,415);
+        
         // Health [Sean]
         Counter healthCounter = new Counter("Health: ");
         addObject(healthCounter, 70, 730);
@@ -50,7 +55,7 @@ public class Kyobashi extends World
         addObject(redRM, 619, 347);
         BlackRM blackRM = new BlackRM();
         addObject(blackRM, 614, 611);
-        
+
         Fence fence = new Fence();
         addObject(fence, 100, 408);
         Fence fence2 = new Fence();
@@ -59,6 +64,7 @@ public class Kyobashi extends World
         addObject(fence3, 351, 427);
         Fence fence4 = new Fence();
         addObject(fence4, 204, 586);
+        fence3.setLocation(352, 434);
     }
     
     public void act()

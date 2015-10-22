@@ -69,30 +69,46 @@ public class Heroes extends Actor
         // Main up
         if (moveState == 1)
         {
-            if (Greenfoot.isKeyDown("a") && canMoveLeft())
+            if (Greenfoot.isKeyDown("a") && canMoveLeft()&&canMoveUp())
             {
                 setLocation(getX() - 1*speedMultiplier, getY() - 1*speedMultiplier);
             }
-            else if (Greenfoot.isKeyDown("d") && canMoveRight())
+            else if (Greenfoot.isKeyDown("d") && canMoveRight()&&canMoveUp())
             {
                 setLocation(getX() + 1*speedMultiplier, getY() - 1*speedMultiplier);
             }
-            else if (canMoveUp())
+            else if (Greenfoot.isKeyDown("d") && canMoveRight())
+            {
+                setLocation(getX() + 1*speedMultiplier, getY());
+            }
+            else if (Greenfoot.isKeyDown("a") && canMoveLeft())
+            {
+                setLocation(getX() - 1*speedMultiplier, getY());
+            }
+            else if(canMoveUp())
             {
                 setLocation(getX(), getY() - 1*speedMultiplier);
             }
             animateUp(up1, up2);
         }
         // Main down
-        if (moveState == 2)
+        else if (moveState == 2)
         {   
-            if (Greenfoot.isKeyDown("a") && canMoveLeft())
+            if (Greenfoot.isKeyDown("a") && canMoveLeft()&&canMoveDown())
             {
                 setLocation(getX() - 1*speedMultiplier, getY() + 1*speedMultiplier);
             }
-            else if (Greenfoot.isKeyDown("d") && canMoveRight())
+            else if (Greenfoot.isKeyDown("d") && canMoveRight()&&canMoveDown())
             {
                 setLocation(getX() + 1*speedMultiplier, getY() + 1*speedMultiplier);
+            }
+            else if (Greenfoot.isKeyDown("a") && canMoveLeft())
+            {
+                setLocation(getX() - 1*speedMultiplier, getY());
+            }
+            else if (Greenfoot.isKeyDown("d") && canMoveRight())
+            {
+                setLocation(getX() + 1*speedMultiplier, getY());
             }
             else if (canMoveDown())
             {
@@ -101,15 +117,23 @@ public class Heroes extends Actor
             animateDown(down1, down2);
         }
         // Main left
-        if (moveState == 3)
+        else if (moveState == 3)
         {
-            if (Greenfoot.isKeyDown("w") && canMoveUp())
+            if (Greenfoot.isKeyDown("w") && canMoveUp()&&canMoveLeft())
             {
                 setLocation(getX() - 1*speedMultiplier, getY() - 1*speedMultiplier);
             }
-            else if (Greenfoot.isKeyDown("s") && canMoveDown())
+            else if (Greenfoot.isKeyDown("s") && canMoveDown()&&canMoveLeft())
             {
                 setLocation(getX() - 1*speedMultiplier, getY() + 1*speedMultiplier);
+            }
+            else if (Greenfoot.isKeyDown("w") && canMoveUp())
+            {
+                setLocation(getX(), getY() - 1*speedMultiplier);
+            }
+            else if (Greenfoot.isKeyDown("s") && canMoveDown())
+            {
+                setLocation(getX(), getY() + 1*speedMultiplier);
             }
             else if (canMoveLeft())
             {
@@ -118,15 +142,23 @@ public class Heroes extends Actor
             animateLeft(left1, left2);
         }
         // Main right
-        if (moveState == 4)
+        else if (moveState == 4)
         {   
-            if (Greenfoot.isKeyDown("w") && canMoveUp())
+            if (Greenfoot.isKeyDown("w") && canMoveUp()&&canMoveRight())
             {
                 setLocation(getX() + 1*speedMultiplier, getY() - 1*speedMultiplier);
             }
-            else if (Greenfoot.isKeyDown("s") && canMoveDown())
+            else if (Greenfoot.isKeyDown("s") && canMoveDown()&&canMoveRight())
             {
                 setLocation(getX() + 1*speedMultiplier, getY() + 1*speedMultiplier);
+            }
+            else if (Greenfoot.isKeyDown("w") && canMoveUp())
+            {
+                setLocation(getX(), getY() - 1*speedMultiplier);
+            }
+            else if (Greenfoot.isKeyDown("s") && canMoveDown())
+            {
+                setLocation(getX(), getY() + 1*speedMultiplier);
             }
             else if (canMoveRight())
             {
@@ -266,7 +298,7 @@ public class Heroes extends Actor
     //Ranged Attack; Functionality of spacebar
     public boolean useSpacebar()
     {
-        return ("space".equals(Greenfoot.getKey()));
+        return (Greenfoot.isKeyDown("space"));
     }
     
     public void act()

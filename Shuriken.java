@@ -13,7 +13,7 @@ public class Shuriken extends Projectiles
     public void act() 
     {
         Actor NPCS = getOneIntersectingObject(NPCS.class);
-            if (NPCS!=null){
+            if (NPCS != null){
                 getWorld().removeObject(NPCS);
                 getWorld().removeObject(this);
                 sliceSound.setVolume(15);
@@ -22,7 +22,6 @@ public class Shuriken extends Projectiles
             else if (atWorldEdge())
             getWorld().removeObject(this);
          st++;
-
          if (st >= 0 && st < 12)
          {
              move (8);
