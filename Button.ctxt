@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.params=type
-comment0.target=Button(int)
-comment0.text=\n\ Act\ -\ do\ whatever\ the\ Button\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-comment1.params=
-comment1.target=void\ act()
-numComments=2
