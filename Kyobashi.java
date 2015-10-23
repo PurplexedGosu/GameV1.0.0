@@ -1,0 +1,118 @@
+import greenfoot.*;
+/**
+ * Functionality in this class:
+ */
+public class Kyobashi extends World
+{
+    private int delay = 11;    //Constructor for objects of class Kyobashi
+    private Ninja n1;
+    Counter healthCounter = new Counter("Health: "); //HAYDENS
+    Counter shurikenCounter = new Counter("Shurikens: ");
+    GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
+    Inferno inferno;
+    public Kyobashi()
+    {    
+        super(750, 750, 1); 
+        createWorld();
+
+        prepare();
+    }
+
+    public void createWorld()
+    {
+        //Creates the Ninja Hero [Sean]
+        n1 = new Ninja();
+        addObject(n1, 100,400);
+        
+        // Health [Sean]
+        
+        
+        
+        // Each fence is 50x50
+        // Fence fence = new Fence();
+        // Create a wall of fences
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
+    {
+        
+        
+        for(int i = 0; i<15; i++)
+            for(int j = 0; j<2; j++)
+            {
+            Fence fence = new Fence();
+            addObject(fence, 25+j*700, 50*i+25);
+            }
+        for(int i = 1;i<24; i++)
+            for(int j = 0; j<2; j++)
+            {
+                Fence fence = new Fence();
+                addObject(fence, 50*i+25, 25+j*700);
+            }
+        addObject(healthCounter, 70, 730);
+        healthCounter.setValue(n1.getNINJAHP());
+        // Shurikens [Sean]
+        
+        addObject(shurikenCounter, 225, 730);
+        shurikenCounter.setValue(n1.getSHURIKENNUMBER());
+    }
+    
+   public void act()
+   {
+       backgroundTheme.setVolume(65);
+       //backgroundTheme.playLoop(); 
+       if (Greenfoot.isKeyDown("j")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
+           Menu menu = new Menu(getThisWorld());
+           Greenfoot.setWorld(menu);
+           delay = 0;
+           
+       }
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
+           inferno = new Inferno(n1);
+           Greenfoot.setWorld(inferno);
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("k")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
+           Cinematic cinematic = new Cinematic(getThisWorld());
+           Greenfoot.setWorld(cinematic);
+           delay = 0;
+       }
+       delay++;
+       healthCounter.setValue(n1.getNINJAHP());
+       shurikenCounter.setValue(n1.getSHURIKENNUMBER());
+   }
+   
+   public Kyobashi getThisWorld()
+   {
+       return this;
+   }
+   
+   public Ninja getNinja()
+   {
+       return n1;
+   }
+   public void infernostart()
+   {
+        inferno = new Inferno(n1);
+        Greenfoot.setWorld(inferno);
+   }
+}
