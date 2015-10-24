@@ -8,12 +8,18 @@ import greenfoot.*;
  */
 public class Door extends Pictures
 {
-    /**
-     * Act - do whatever the Door wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
-        // Add your action code here.
+        checkNinja();
     }    
+    public void checkNinja()
+    {
+        Actor ninja = getOneIntersectingObject(Ninja.class);
+        if(ninja!= null)
+        {
+           Kyobashi world = (Kyobashi) getWorld();
+           world.addLevel();
+           //getWorld().removeObject(this);
+        }
+    }
 }

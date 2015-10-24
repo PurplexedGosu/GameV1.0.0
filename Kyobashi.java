@@ -4,33 +4,24 @@ import greenfoot.*;
  */
 public class Kyobashi extends World
 {
+    public int level = 0;
     private int delay = 11;    //Constructor for objects of class Kyobashi
     private Ninja n1;
     Counter healthCounter = new Counter("Health: "); //HAYDENS
     Counter shurikenCounter = new Counter("Shurikens: ");
+    Counter levelCounter = new Counter("Level: ");
     GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
+    // Levels
     Inferno inferno;
+    K1 k1;
+    K2 k2;
+    K3 k3;
     public Kyobashi()
     {    
         super(750, 750, 1); 
-        createWorld();
+        n1 = new Ninja();
 
         prepare();
-    }
-
-    public void createWorld()
-    {
-        //Creates the Ninja Hero [Sean]
-        n1 = new Ninja();
-        addObject(n1, 100,400);
-        
-        // Health [Sean]
-        
-        
-        
-        // Each fence is 50x50
-        // Fence fence = new Fence();
-        // Create a wall of fences
     }
 
     /**
@@ -39,8 +30,7 @@ public class Kyobashi extends World
      */
     private void prepare()
     {
-        
-        
+        addObject(n1, 100,400);
         for(int i = 0; i<15; i++)
             for(int j = 0; j<2; j++)
             {
@@ -59,12 +49,19 @@ public class Kyobashi extends World
         
         addObject(shurikenCounter, 225, 730);
         shurikenCounter.setValue(n1.getSHURIKENNUMBER());
+        
+        addObject(levelCounter, 355, 730);
+        levelCounter.setValue(level);
+        
     }
     
    public void act()
    {
        backgroundTheme.setVolume(65);
        //backgroundTheme.playLoop(); 
+       
+       
+       
        if (Greenfoot.isKeyDown("j")&&delay>10) 
        {
            if(backgroundTheme.isPlaying())
@@ -92,6 +89,15 @@ public class Kyobashi extends World
            {
                backgroundTheme.pause();
            }
+           k1Start();
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("l")&&delay>10) 
+       {
+           if(backgroundTheme.isPlaying())
+           {
+               backgroundTheme.pause();
+           }
            Cinematic cinematic = new Cinematic(getThisWorld());
            Greenfoot.setWorld(cinematic);
            delay = 0;
@@ -99,6 +105,7 @@ public class Kyobashi extends World
        delay++;
        healthCounter.setValue(n1.getNINJAHP());
        shurikenCounter.setValue(n1.getSHURIKENNUMBER());
+       
    }
    
    public Kyobashi getThisWorld()
@@ -110,9 +117,35 @@ public class Kyobashi extends World
    {
        return n1;
    }
-   public void infernostart()
+   
+   // Starting Levels
+   public void infernostart()  // [Hayden]
    {
         inferno = new Inferno(n1);
         Greenfoot.setWorld(inferno);
+   }
+   public void k1Start() // [Sean]
+   {
+       k1 = new K1(n1, healthCounter, shurikenCounter, levelCounter);
+       Greenfoot.setWorld(k1);
+   }
+   public void k2Start() // [Sean]
+   {
+       k2 = new K2(n1, healthCounter, shurikenCounter, levelCounter);
+       Greenfoot.setWorld(k2);
+   }
+   public void k3Start() // [Sean]
+   {
+       k3 = new K3(n1, healthCounter, shurikenCounter, levelCounter);
+       Greenfoot.setWorld(k3);
+   }
+   public void addLevel()
+   {
+       level++;
+       levelCounter.add(1);
+   }
+   public int getLevel()
+   {
+       return level;
    }
 }

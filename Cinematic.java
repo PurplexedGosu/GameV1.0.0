@@ -40,7 +40,7 @@ public class Cinematic extends World
         backgroundTheme.playLoop();
         backgroundTheme.setVolume(100);
         // Allows us to change between worlds smoothly
-        if (Greenfoot.isKeyDown("k")&&delay>10) 
+        if (Greenfoot.isKeyDown("l")&&delay>10) 
         {
             backgroundTheme.pause();
             Greenfoot.setWorld(cinematic);

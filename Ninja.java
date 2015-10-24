@@ -92,7 +92,7 @@ public class Ninja extends Heroes
         if (Greenfoot.isKeyDown("w") && !Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("d"))
         {
             ninjaRotation = 225;
-            swordRotation = 90;
+            swordRotation = 0;
         }
         // Up Right
         else if (Greenfoot.isKeyDown("w") && !Greenfoot.isKeyDown("s") && !Greenfoot.isKeyDown("a") && Greenfoot.isKeyDown("d"))
@@ -104,7 +104,7 @@ public class Ninja extends Heroes
         if (!Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s") && Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("d"))
         {
             ninjaRotation = 135;
-            swordRotation = 90;
+            swordRotation = 0;
         }
         // Down Right
         else if (!Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s") && !Greenfoot.isKeyDown("a") && Greenfoot.isKeyDown("d"))
@@ -210,6 +210,7 @@ public class Ninja extends Heroes
             world.infernostart();
         }
     }*/
+    // If ninja hits edge of world
     
     public int getMeleeDamage()
     {

@@ -9,20 +9,44 @@ import greenfoot.*;
 public class K1 extends Kyobashi
 {
     Kyobashi K1;
-    //Kyobashi K2;
     Ninja n1;
-    /**
-     * Constructor for objects of class K1.
-     * 
-     */
-    public K1()
+    Counter healthCounter;
+    Counter shurikenCounter;
+    Counter levelCounter;
+    public K1(Ninja n1, Counter healthCounter, Counter shurikenCounter, Counter levelCounter)
     {
         super();
-        //this.n1=n1;
-        //this.K1 = K1;
+        this.n1 = n1;
+        this.healthCounter = healthCounter;
+        this.shurikenCounter = shurikenCounter;
+        this.levelCounter = levelCounter;
+
+        prepare();
     }
-    /*public void K1toK2(){
-        K2 = new K2(n1);
-        Greenfoot.setWorld(K2);
-    */ //}
+
+    private void prepare()
+    {
+        Door door = new Door();
+        addObject(door, 663, 651);
+        
+        addObject(healthCounter, 70, 730);
+        
+        addObject(shurikenCounter, 225, 730);
+        
+        addObject(levelCounter, 355, 730);
+        levelCounter.setValue(levelCounter.getValue() + 1);
+    }
+    public void act()
+    {
+        changeLevel();
+    }
+    
+    private void changeLevel()
+    {
+        if (getLevel() == 2)
+        {
+            k2Start();
+        }
+    }
+    
 }
