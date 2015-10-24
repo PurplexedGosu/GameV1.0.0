@@ -30,7 +30,7 @@ public class K3 extends Kyobashi
     private void prepare()
     {
         Door door = new Door();
-        addObject(door, 75, 75);
+        addObject(door, 85, 50);
         
         addObject(healthCounter, 70, 730);
         
@@ -43,6 +43,21 @@ public class K3 extends Kyobashi
     public void act()
     {
         changeLevel();
+        
+        /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
+       if (Greenfoot.isKeyDown("1")) 
+       {
+           k1Start();
+       }
+       if (Greenfoot.isKeyDown("2")) 
+       {
+           k2Start();
+       }
+       if (Greenfoot.isKeyDown("3")) 
+       {
+           k3Start();
+       }
+       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
     }
     private void changeLevel()
     {

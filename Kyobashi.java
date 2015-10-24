@@ -102,6 +102,25 @@ public class Kyobashi extends World
            Greenfoot.setWorld(cinematic);
            delay = 0;
        }
+       
+       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
+       if (Greenfoot.isKeyDown("1")&&delay>10) 
+       {
+           k1Start();
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("2")&&delay>10) 
+       {
+           k2Start();
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("3")&&delay>10) 
+       {
+           k3Start();
+           delay = 0;
+       }
+       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
+       
        delay++;
        healthCounter.setValue(n1.getNINJAHP());
        shurikenCounter.setValue(n1.getSHURIKENNUMBER());
