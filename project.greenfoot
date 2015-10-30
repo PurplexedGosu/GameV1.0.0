@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Oct 30 12:56:41 PDT 2015
+#Fri Oct 30 13:54:53 PDT 2015
 target24.type=ClassTarget
 target16.name=Obstacles
 target13.editor.width=1280
@@ -140,6 +140,7 @@ target28.showInterface=false
 target45.y=730
 dependency86.type=UsesDependency
 target45.x=10
+class.K4.superclass=Trap
 dependency61.type=UsesDependency
 package.numTargets=46
 target5.typeParameters=
@@ -156,6 +157,7 @@ target2.type=ClassTarget
 dependency60.from=K1
 dependency36.type=UsesDependency
 target20.editor.height=720
+class.K5.superclass=Trap
 dependency46.to=Ninja
 target29.typeParameters=
 target25.showInterface=false

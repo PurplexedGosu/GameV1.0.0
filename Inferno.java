@@ -7,12 +7,12 @@ public class Inferno extends World
 {
     private Kyobashi inferno;
     private int delay = 0;
-    Ninja n1;
-    public Inferno(Ninja n1)
+    Ninja ninja;
+    public Inferno(Ninja ninja)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(750, 750, 1); 
-        this.n1 = n1;
+        this.ninja = ninja;
         this.inferno = inferno;
         prepare();
     }
@@ -22,8 +22,6 @@ public class Inferno extends World
     }
     private void prepare()
     {
-        Ninja n1;
-        n1 = new Ninja();
-        addObject(n1, 100,400);
+        addObject(ninja, 100,400);
     }
 }

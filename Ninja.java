@@ -17,9 +17,6 @@ public class Ninja extends Heroes
     public int powerBar = 100;
     public int powerBarDelay = 0;
     
-    public int powerUpOneDelay = 0;
-    public int powerUpOneDuration = 100;
-    
     public int shurikennumber = 8;
     
     private int delay1 = 71;
@@ -299,14 +296,11 @@ public class Ninja extends Heroes
     }
     // "Currently under ranged minion" Melee minion AI End [Hayden] 
        public void powerUpOne(){
-           powerUpOneDelay++;
-           
-        if (powerBar >= 1 && powerUpOneDelay >21 && (canMoveUp() || canMoveDown() || canMoveLeft() || canMoveRight())){
+        if (powerBar >= 1  && (canMoveUp() || canMoveDown() || canMoveLeft() || canMoveRight())){
             
-            if (Greenfoot.isKeyDown("down") && powerUpOneDuration >= 0)
+            if (Greenfoot.isKeyDown("down"))
             {
                 powerBar -= 1;
-                powerUpOneDuration --;
                 speedMultiplier = 4;
             }
             else
@@ -341,11 +335,12 @@ public class Ninja extends Heroes
             public void addPower(){
         Actor PP  = getOneIntersectingObject(instaPower.class);
         if (PP != null){
-            if (powerBar <= 50){
+            if (powerBar <= 50)
+            {
                 powerBar += 50;
-                
             }
-            else{
+            else
+            {
                 powerBar+= (100-powerBar);
             }
             
