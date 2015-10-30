@@ -14,6 +14,12 @@ public class Ninja extends Heroes
     static int speedMultiplier = 2;
     private int delay = 21;
     // Start Hayden Variables
+    public int powerBar = 100;
+    public int powerBarDelay = 0;
+    
+    public int powerUpOneDelay = 0;
+    public int powerUpOneDuration = 100;
+    
     public int shurikennumber = 8;
     
     private int delay1 = 71;
@@ -52,15 +58,29 @@ public class Ninja extends Heroes
         hitLightning(); // Implements melee attack
         shootShuriken(); // Implements ranged attack
         minionAttack();
-        ninjaDied();
         damageRangedMinion();
         transparent();
-        
+        powerBarCount();
+        addPower();
+        addShuriken();
+        addHealth();
+        powerUpOne();
+        ninjaDied();
     }    
+    public void powerBarCount(){
+        powerBarDelay++;
+        if (powerBarDelay >= 60){
+            powerBarDelay = 0;
+            if (powerBar < 100){
+                powerBar++;
+            }
+        }
+    }
+    
     // Melee Attack Start [Bill]
     public void hitLightning()
     {
-        if ((Greenfoot.isKeyDown("f") || Greenfoot.isKeyDown("control")) && delay>40)
+        if ((Greenfoot.isKeyDown("enter") && delay>40))
         {
             Lightning l1 = new Lightning(swordRotation);
             if(this.getImage()==up1||this.getImage()==up2)
@@ -139,7 +159,7 @@ public class Ninja extends Heroes
             ninjaRotation = 360;
             swordRotation = 0;
         }
-        if (Greenfoot.isKeyDown("space")  && delay> 50 && shurikennumber >0)
+        if (Greenfoot.isKeyDown("shift")  && delay> 50 && shurikennumber >0)
         {
             Shuriken s1 = new Shuriken();
             shurikennumber--;
@@ -215,8 +235,8 @@ public class Ninja extends Heroes
     {
         if (ninjahp <= 0)
         {
-            Kyobashi world = (Kyobashi)getWorld();
-            world.infernostart();
+            Trap trapWorld = (Trap)getWorld();
+            trapWorld.infernostart();
         }
     }
    
@@ -255,6 +275,9 @@ public class Ninja extends Heroes
     public int getNINJAHP(){
         return ninjahp;
     }
+        public int getPOWERBAR(){
+        return powerBar;
+    }
     public boolean checkDoor()
     {
         if(getWorld().getObjects(Ninja.class).size()!=0)
@@ -275,4 +298,67 @@ public class Ninja extends Heroes
         }
     }
     // "Currently under ranged minion" Melee minion AI End [Hayden] 
+       public void powerUpOne(){
+           powerUpOneDelay++;
+           
+        if (powerBar >= 1 && powerUpOneDelay >21 && (canMoveUp() || canMoveDown() || canMoveLeft() || canMoveRight())){
+            
+            if (Greenfoot.isKeyDown("down") && powerUpOneDuration >= 0)
+            {
+                powerBar -= 1;
+                powerUpOneDuration --;
+                speedMultiplier = 4;
+            }
+            else
+            {
+                speedMultiplier = 2;
+            }
+        }
+        else
+        {
+            speedMultiplier = 2;
+        }
+    }
+        public void powerUp2(){
+        if (powerBar >= 100){
+            
+            powerBar=0;
+        }
+    }
+        public void powerUp3(){
+        if (powerBar >= 100){
+            
+            powerBar=0;
+        }
+    }
+        public void addShuriken(){
+        Actor SP  = getOneIntersectingObject(addShuriken.class);
+        if (SP != null){
+            shurikennumber += 3;
+            getWorld().removeObject(SP);
+        }
+    } 
+            public void addPower(){
+        Actor PP  = getOneIntersectingObject(instaPower.class);
+        if (PP != null){
+            if (powerBar <= 50){
+                powerBar += 50;
+                
+            }
+            else{
+                powerBar+= (100-powerBar);
+            }
+            
+            getWorld().removeObject(PP);
+        }
+    }
+                public void addHealth(){
+        Actor HP  = getOneIntersectingObject(HealthGlobe.class);
+        if (HP != null){
+            ninjahp += 3;
+            getWorld().removeObject(HP);
+        }
+    }
+
+
 }

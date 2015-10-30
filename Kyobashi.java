@@ -9,6 +9,7 @@ public class Kyobashi extends World
     private Ninja ninja;
     Counter healthCounter = new Counter("Health: "); //HAYDENS
     Counter shurikenCounter = new Counter("Shurikens: ");
+    Counter powerCounter = new Counter("Power: ");
     Counter levelCounter = new Counter("Level: ");
     GreenfootSound backgroundTheme = new GreenfootSound("ninja_backgroundtheme.mp3");
     // Levels
@@ -45,6 +46,11 @@ public class Kyobashi extends World
         
         addObject(shurikenCounter, 225, 730);
         shurikenCounter.setValue(ninja.getSHURIKENNUMBER());
+        
+        addObject(powerCounter, 500, 730);
+        powerCounter.setValue(ninja.getPOWERBAR());
+        
+        
         
         addObject(levelCounter, 355, 730);
         levelCounter.setValue(level);
@@ -107,6 +113,7 @@ public class Kyobashi extends World
        delay++;
        healthCounter.setValue(ninja.getNINJAHP());
        shurikenCounter.setValue(ninja.getSHURIKENNUMBER());
+       powerCounter.setValue(ninja.getPOWERBAR());
        checkDoor();
    }
    
@@ -121,11 +128,7 @@ public class Kyobashi extends World
    }
    
    // Starting Levels
-   public void infernostart()  // [Hayden]
-   {
-        inferno = new Inferno(ninja);
-        Greenfoot.setWorld(inferno);
-   }
+   
    public void k1Start() // [Sean]
    {
        K1 k1 = new K1(ninja);

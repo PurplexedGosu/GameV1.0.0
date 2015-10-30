@@ -11,7 +11,6 @@ public class Shuriken extends Projectiles
     {
         Actor NPCS = getOneIntersectingObject(NPCS.class);
             if (NPCS != null){
-                //getWorld().removeObject(NPCS);
                 getWorld().removeObject(this);
                 sliceSound.setVolume(15);
                 sliceSound.play();

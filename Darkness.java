@@ -6,7 +6,7 @@ import greenfoot.*;
 public class Darkness extends Projectiles
 {
     private int st = 0;
-    GreenfootSound sliceSound = new GreenfootSound("slice.mp3");
+    GreenfootSound sliceSound = new GreenfootSound("DarknessSwish.mp3");
     GreenfootImage darkness1 = new GreenfootImage("Darkness/Darkness1.png");
     GreenfootImage darkness2 = new GreenfootImage("Darkness/Darkness2.png");
     GreenfootImage darkness3 = new GreenfootImage("Darkness/Darkness3.png");
@@ -43,9 +43,10 @@ public class Darkness extends Projectiles
         
         Actor ninja = getOneIntersectingObject(Ninja.class);
             if (ninja != null){
-                getWorld().removeObject(this);
-                sliceSound.setVolume(15);
+                
+                sliceSound.setVolume(80);
                 sliceSound.play();
+                getWorld().removeObject(this);
             }
             else if (atWorldEdge())
             getWorld().removeObject(this);
@@ -57,23 +58,19 @@ public class Darkness extends Projectiles
          else if (st >= 12 && st < 24)
          {
              move(3);
-             //turn(1);
          }
          else if (st >= 24 && st < 36)
          {
              move(2);
-             //turn(-2);
          }
          else if (st >= 36 && st < 48)
          {
              move(1);
-             //turn(1);
          }
          else if (st >= 48 && st < 54)
          {
              move(1);
              getWorld().removeObject(this);
-             //turn(-2);
          }
          
     }    

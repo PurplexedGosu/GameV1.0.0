@@ -9,6 +9,7 @@ import greenfoot.*;
 public class Trap extends World
 {
     Ninja ninja;
+    Inferno inferno;
     /**
      * Constructor for objects of class Trap.
      * 
@@ -22,4 +23,9 @@ public class Trap extends World
     {
         return ninja;
     }
+    public void infernostart()  // [Hayden]
+   {
+        inferno = new Inferno(ninja);
+        Greenfoot.setWorld(inferno);
+   }
 }

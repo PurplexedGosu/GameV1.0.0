@@ -12,6 +12,7 @@ public class K2 extends Trap
     Counter healthCounter = new Counter("Health: ");
     Counter shurikenCounter = new Counter("Shurikens: ");
     Counter levelCounter = new Counter("Level: ");
+    Counter powerCounter = new Counter("Power: ");
     public K2(Ninja ninja)
     {
         super();
@@ -27,6 +28,8 @@ public class K2 extends Trap
         addObject(healthCounter, 70, 730);
 
         addObject(shurikenCounter, 225, 730);
+        
+        addObject(powerCounter, 500, 730);
 
         addObject(levelCounter, 355, 730);
         levelCounter.setValue(2);
@@ -89,6 +92,7 @@ public class K2 extends Trap
         {
             healthCounter.setValue(ninja.getNINJAHP());
             shurikenCounter.setValue(ninja.getSHURIKENNUMBER());
+            powerCounter.setValue(ninja.getPOWERBAR());
             checkDoor();
             /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
         }

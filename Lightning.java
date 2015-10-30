@@ -18,7 +18,7 @@ public class Lightning extends Projectiles
         creationTime = System.currentTimeMillis();
         setImage(sword);
         this.swordRotation = swordRotation;
-        //sword.rotate(swordRotation - 45);
+        sword.rotate(swordRotation - 45);
     }
     
     public void creation()
@@ -36,7 +36,6 @@ public class Lightning extends Projectiles
             creation();
         Actor NPCS = getOneIntersectingObject(NPCS.class);
             if (NPCS!=null&&delay>10000){
-                //getWorld().removeObject(NPCS);
                 getWorld().removeObject(this);
                 real = false;
                 delay = 0;
