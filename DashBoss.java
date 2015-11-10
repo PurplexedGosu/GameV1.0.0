@@ -7,7 +7,7 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DashBoss extends Boss
+public class DashBoss extends Bosses
 {
     public int dashtimer = 0;
     public int DBHP;
@@ -46,15 +46,14 @@ public class DashBoss extends Boss
         {
             turnTowards(list.get(0).getX(), list.get(0).getY());
             double x = getRotation();
-            DashDarkness darkness = new DashDarkness(Greenfoot.getRandomNumber(10)+5);
+            Darkness darkness = new Darkness(4);
             getWorld().addObject(darkness, getX(), getY());
             darkness.turnTowards(list.get(0).getX(), list.get(0).getY());
             delay = 0;
             setRotation(0);
             setImage("Images/DashBoss/TP1.png");
         }
-        delay++;   
-        
+        delay++;  
     }
     
     public void dashAround(){

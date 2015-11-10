@@ -80,7 +80,7 @@ public class T24 extends Trap
     public void act()
     {
         checkTeleport();
-        if (Greenfoot.isKeyDown("j")&&delay>10) 
+        if (Greenfoot.isKeyDown("h")&&delay>10) 
         {
             Menu menu = new Menu(getThisWorld());
             Greenfoot.setWorld(menu);

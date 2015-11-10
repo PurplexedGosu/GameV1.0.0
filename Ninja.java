@@ -82,7 +82,7 @@ public class Ninja extends Heroes
     // Melee Attack Start [Bill]
     public void hitLightning()
     {
-        if ((Greenfoot.isKeyDown("enter") && delay>40))
+        if ((Greenfoot.isKeyDown("k") && delay>40))
         {
             Lightning l1 = new Lightning(swordRotation);
             if(powerUpThree)
@@ -168,7 +168,7 @@ public class Ninja extends Heroes
             ninjaRotation = 360;
             swordRotation = 0;
         }
-        if (Greenfoot.isKeyDown("shift")  && delay> 50 && shurikennumber >0)
+        if (Greenfoot.isKeyDown("j")  && delay> 50 && shurikennumber >0)
         {
             Shuriken s1 = new Shuriken(getRangeDamage());
             shurikennumber--;

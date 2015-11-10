@@ -12,7 +12,7 @@ public class Shuriken extends Projectiles
     public void act() 
     {
         NPCS();
-        DASHBOSS();
+        //DASHBOSS();
     }    
     public Shuriken(int damage)
     {
@@ -51,18 +51,25 @@ public class Shuriken extends Projectiles
          else if (st >= 60 && st < 72)
          {
              move(3);
-             getWorld().removeObject(this);
+             if (this != null)
+             {
+                 getWorld().removeObject(this);
+             }
          }
     }
+    /*
     public void DASHBOSS(){
-                Actor DashBoss = getOneIntersectingObject(DashBoss.class);
+            Actor DashBoss = getOneIntersectingObject(DashBoss.class);
             if (DashBoss != null){
-                getWorld().removeObject(this);
                 sliceSound.setVolume(15);
                 sliceSound.play();
+                if (this != null)
+                {
+                getWorld().removeObject(this);
+                }
             }
-            
     }
+    */
     public int getDamage()
     {
         return damage;

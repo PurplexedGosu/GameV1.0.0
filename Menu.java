@@ -38,7 +38,7 @@ public class Menu extends World
     // Menu Implementation Start [Bill]
     public void act()
     {
-       if (Greenfoot.isKeyDown("j")&&delay>10) 
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
        {
            Greenfoot.setWorld(trap);
            delay = 0;

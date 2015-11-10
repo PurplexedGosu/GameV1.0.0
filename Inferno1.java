@@ -118,7 +118,7 @@ public class Inferno1 extends Trap
     public void act()
     {
        //makeSmokeFireball();
-       if (Greenfoot.isKeyDown("j")&&delay>10) 
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
        {
            Menu menu = new Menu(getThisWorld());
            Greenfoot.setWorld(menu);

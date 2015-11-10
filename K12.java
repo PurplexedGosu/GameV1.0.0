@@ -12,7 +12,7 @@ public class K12 extends Trap
     Counter shurikenCounter = new Counter("Shurikens: ");
     Counter levelCounter = new Counter("Level: ");
     Counter powerCounter = new Counter("Power: ");
-    private List<Boss> dashboss;
+    private List<Bosses> dashboss;
     Ninja ninja;
     int delay = 11;
     public K12(Ninja ninja)
@@ -70,7 +70,7 @@ public class K12 extends Trap
     public void act()
     {
         createdoor();
-       if (Greenfoot.isKeyDown("j")&&delay>10) 
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
        {
            Menu menu = new Menu(getThisWorld());
            Greenfoot.setWorld(menu);
@@ -104,7 +104,7 @@ public class K12 extends Trap
    }
    
    public boolean isbossthere(){
-        List<Boss> list = getObjects(DashBoss.class);
+        List<Bosses> list = getObjects(DashBoss.class);
         if (list.size()>0)
         
         

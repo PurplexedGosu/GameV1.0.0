@@ -55,13 +55,13 @@ public class Kyobashi extends Trap
         addObject(levelCounter, 355, 730);
         levelCounter.setValue(level);
         doorT10 door = new doorT10();
-        addObject(door, 250, 250);
+        addObject(door, 200, 600);
         
         InfernoDoor infernoDoor = new InfernoDoor();
-        addObject(infernoDoor, 500, 500);
+        addObject(infernoDoor, 400, 600);
         
         doorT21 doorT21 = new doorT21();
-        addObject(doorT21, 450, 250);
+        addObject(doorT21, 600, 600);
     }
     
    public void act()
@@ -69,43 +69,10 @@ public class Kyobashi extends Trap
        backgroundTheme.setVolume(65);
        //backgroundTheme.playLoop(); 
        
+       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
        
-       
-      
+       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
        if (Greenfoot.isKeyDown("h")&&delay>10) 
-       {
-           if(backgroundTheme.isPlaying())
-           {
-               backgroundTheme.pause();
-           }
-           deathWorld = new DeathWorld(ninja);
-           Greenfoot.setWorld(deathWorld);
-           delay = 0;
-       }
-       if (Greenfoot.isKeyDown("k")&&delay>10) 
-       {
-           if(backgroundTheme.isPlaying())
-           {
-               backgroundTheme.pause();
-           }
-           k1Start();
-           delay = 0;
-       }
-       if (Greenfoot.isKeyDown("l")&&delay>10) 
-       {
-           if(backgroundTheme.isPlaying())
-           {
-               backgroundTheme.pause();
-           }
-           Cinematic cinematic = new Cinematic(getThisWorld());
-           Greenfoot.setWorld(cinematic);
-           delay = 0;
-       }
-       
-       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
-       
-       /**/ // TEMPORAY FUNCTIONS FOR HAYDEN TO CHANGE LEVELS TO MAKE THEM /**/ 
-       if (Greenfoot.isKeyDown("j")&&delay>10) 
        {
            Menu menu = new Menu(getThisWorld());
            Greenfoot.setWorld(menu);
@@ -135,6 +102,11 @@ public class Kyobashi extends Trap
        if (Greenfoot.isKeyDown("0")&&delay>10) 
        {
            Greenfoot.setWorld(new InfernoBossLevel(ninja));
+           delay = 0;
+       }
+       if (Greenfoot.isKeyDown("8")&&delay>10) 
+       {
+           Greenfoot.setWorld(new K12(ninja));
            delay = 0;
        }
        delay++;
@@ -185,7 +157,7 @@ public class Kyobashi extends Trap
    public void checkDoor()
    {
        if(ninja.checkDoor()==true)
-            Greenfoot.setWorld(new K12(ninja));
+            Greenfoot.setWorld(new K1(ninja));
    }
    public void checkInfernoDoor()
    {
