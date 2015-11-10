@@ -45,7 +45,8 @@ public class DashDarkness extends Projectiles
         
         Actor ninja = getOneIntersectingObject(Ninja.class);
             if (ninja != null){
-                
+                NinjaBlood ninjaBlood = new NinjaBlood();
+                getWorld().addObject(ninjaBlood, getX(), getY());
                 sliceSound.setVolume(80);
                 sliceSound.play();
                 getWorld().removeObject(this);

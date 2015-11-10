@@ -81,6 +81,8 @@ public class DevelopersWorldMaker extends World
         armpool3.setLocation(649, 185);
         infernofence3.setLocation(647, 602);
         armpool4.setLocation(581, 566);
+        BlueMM bluemm = new BlueMM(5, 4);
+        addObject(bluemm, 316, 175);
     }
     
 }

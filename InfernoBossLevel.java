@@ -13,6 +13,7 @@ public class InfernoBossLevel extends Trap
     Counter levelCounter = new Counter("Level: ");
     Counter powerCounter = new Counter("Power: ");
     private List<NPCS> npcs;
+    private List<Bosses> infernoboss;
     Ninja ninja;
     private int delay = 11;
     private int fireballDelay = 11;
@@ -20,13 +21,15 @@ public class InfernoBossLevel extends Trap
     {
         super();
         this.ninja = ninja;
-        
-        InfernoBoss infernoBoss = new InfernoBoss();
-        addObject(infernoBoss, getWidth()/2 , getHeight()/2);
         prepare();
+        
     }
     private void prepare()
     {
+        InfernoBoss infernoboss = new InfernoBoss(10);
+        addObject(infernoboss, getWidth()/2 , getHeight()/2);
+        
+        
         InfernoFence infernofence = new InfernoFence();
         addObject(infernofence, 148, 119);
         InfernoFence infernofence2 = new InfernoFence();
@@ -85,11 +88,15 @@ public class InfernoBossLevel extends Trap
            TempText2 text = new TempText2(npcs.get(i));
            addObject(text, npcs.get(i).getX(), npcs.get(i).getY()-20);
        }
+       
+       
+           TempText4 text = new TempText4(infernoboss);
+           addObject(text, infernoboss.getX(), infernoboss.getY()-20);
     }
     public void act()
     {
        //makeSmokeFireball();
-       if (Greenfoot.isKeyDown("j")&&delay>10) 
+       if (Greenfoot.isKeyDown("h")&&delay>10) 
        {
            Menu menu = new Menu(getThisWorld());
            Greenfoot.setWorld(menu);

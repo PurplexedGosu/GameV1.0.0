@@ -19,13 +19,13 @@ public class Button extends Actor
         {
             delay = 0;
             ninja.setMeleeDamage(ninja.getMeleeDamage()+1);
-            ninja.setPoints(ninja.getPoints()-1);
+            ninja.setPoints(ninja.getPoints()-5);
         }
         if(delay>20&&Greenfoot.mouseClicked(this)&&type==2&&ninja.getPoints()>4)
         {
             delay = 0;
             ninja.setRangeDamage(ninja.getRangeDamage()+1);
-            ninja.setPoints(ninja.getPoints()-1);
+            ninja.setPoints(ninja.getPoints()-5);
         }
         if(delay>20&&Greenfoot.mouseClicked(this)&&type==3&&ninja.getPoints()>4)
         {
@@ -34,7 +34,7 @@ public class Button extends Actor
             ninja.setHP(ninja.getHP()+1);
             if(ninja.getHP()>ninja.getArmor())
                 ninja.setHP(ninja.getArmor());
-            ninja.setPoints(ninja.getPoints()-1);
+            ninja.setPoints(ninja.getPoints()-5);
         }
         delay++;
     }    

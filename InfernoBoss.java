@@ -12,6 +12,8 @@ public class InfernoBoss extends Bosses
      * Act - do whatever the InfernoBoss wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public int delay2 = 11;
+    public int infernoBossHealth;
     
     // Sprite from http://www.spriters-resource.com/pc_computer/maplestory/sheet/69039/
     private GreenfootImage InfernoMove0 = new GreenfootImage("InfernoBoss/move_0.png");
@@ -36,12 +38,16 @@ public class InfernoBoss extends Bosses
     
     private int counter = 0;
     private int counterBuffer = 100;
-    public InfernoBoss()
+    public InfernoBoss(int infernoBossHealth)
     {
+        this.infernoBossHealth = infernoBossHealth;
     }
 
     public void act() 
     {
+        getHealth();
+        ninjaattack();
+        
         if (counter >= 0 && counter < 75) // 1 unit +50 + 25
         {
             setLocation(getX(), getY() + 1);
@@ -88,5 +94,45 @@ public class InfernoBoss extends Bosses
         }
         animateSeven(InfernoStand0, InfernoStand1, InfernoStand2, InfernoStand3, InfernoStand4, InfernoStand5, InfernoStand6, InfernoStand7);
         counter++;
+        IBDied();
     }    
+    public int getHealth(){
+        return infernoBossHealth;
+    }
+    
+        public InfernoBoss getThis()
+    {
+        return this;
+    }
+    public void ninjaattack(){
+       // if (delay2 >=60){         
+            Actor shuriken = getOneIntersectingObject(Shuriken.class);
+            Actor lightning = getOneIntersectingObject(Lightning.class);
+            if (shuriken != null && delay2==0){
+             Trap trap = (Trap) getWorld();
+             infernoBossHealth = infernoBossHealth-trap.getNinja().getRangeDamage();
+             delay2 = 11;
+            }
+            else if(lightning != null && delay2==0)
+            {
+                Trap trap = (Trap) getWorld();
+                infernoBossHealth = infernoBossHealth-trap.getNinja().getMeleeDamage();
+                delay2 = 11;
+            }
+            else if(delay2>0){
+           delay2--;
+           }
+        
+    }
+    public void IBDied()
+    {
+        if (infernoBossHealth <= 0)
+        {
+            Trap trap = (Trap) getWorld();
+            trap.getNinja().setPoints(trap.getNinja().getPoints()+5);
+            doorT10 door = new doorT10();
+            getWorld().addObject(door, 375, 660);
+            getWorld().removeObject(this);
+        }
+    }
 }

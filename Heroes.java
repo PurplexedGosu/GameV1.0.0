@@ -15,6 +15,15 @@ public class Heroes extends SmoothMover
     private int left = 0; // Left key pressed in the number of movement keys pressed
     private int right = 0; // Right key pressed in the number of movement keys pressed
     public int swordRotation;
+    private boolean powerUpTwo = false;
+    public int powerBar = 100;
+    public int powerBarDelay = 0;
+    
+   public void act()
+   {
+    //powerUpTwo();
+    powerBarCount();
+    }
     
     // Checks which key is pressed first for movement Start [Sean]
     public void keyState(GreenfootImage up1, GreenfootImage down1, GreenfootImage left1, GreenfootImage right1)
@@ -264,6 +273,28 @@ public class Heroes extends SmoothMover
             frame+=.25;
     }
     // Animation System End [Sean]
+    
+    public void powerBarCount(){
+        powerBarDelay++;
+        if (powerBarDelay >= 60){
+            powerBarDelay = 0;
+            if (powerBar < 100){
+                powerBar++;
+            }
+        }
+    }
+    
+     /*public void powerUpTwo(){
+            if(powerBar>0&&(Greenfoot.isKeyDown("'") || Greenfoot.isKeyDown("r")))
+            {
+                getImage().setTransparency(100);
+                powerBar-=1;
+                powerUpTwo = true;
+            }
+            else
+                powerUpTwo = false;
+    
+            }*/
     // Hit Detection System Start [Bill]
     public boolean canMoveRight()
     {
@@ -272,6 +303,11 @@ public class Heroes extends SmoothMover
         {
             if(getOneObjectAtOffset(25,i,Obstacles.class)!=null)
                 good = false;
+        }
+        
+        if(powerUpTwo== true)
+        {
+            good= true;
         }
         return good;
     }
@@ -284,6 +320,11 @@ public class Heroes extends SmoothMover
             if(getOneObjectAtOffset(-25,i,Obstacles.class)!=null)
                 good = false;
         }
+        
+          if(powerUpTwo== true)
+        {
+            good= true;
+        }
         return good;
     }
   
@@ -295,6 +336,11 @@ public class Heroes extends SmoothMover
             if(getOneObjectAtOffset(i,-25,Obstacles.class)!=null)
                 good = false;
         }
+        
+          if(powerUpTwo== true)
+        {
+            good= true;
+        }
         return good;
     }
     
@@ -305,6 +351,11 @@ public class Heroes extends SmoothMover
         {
             if(getOneObjectAtOffset(i,25,Obstacles.class)!=null)
                 good = false;
+        }
+        
+          if(powerUpTwo== true)
+        {
+            good= true;
         }
         return good;
     }

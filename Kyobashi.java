@@ -62,6 +62,8 @@ public class Kyobashi extends Trap
         
         doorT21 doorT21 = new doorT21();
         addObject(doorT21, 600, 600);
+        SnowDoor snowdoor = new SnowDoor();
+        addObject(snowdoor, 600, 200);
     }
     
    public void act()
@@ -109,11 +111,17 @@ public class Kyobashi extends Trap
            Greenfoot.setWorld(new K12(ninja));
            delay = 0;
        }
+       if (Greenfoot.isKeyDown("7")&&delay>10)
+       {
+           Greenfoot.setWorld(new Snow3(ninja));
+           delay = 0;
+        }
        delay++;
        healthCounter.setValue(ninja.getNINJAHP());
        shurikenCounter.setValue(ninja.getSHURIKENNUMBER());
        powerCounter.setValue(ninja.getPOWERBAR());
        checkDoor();
+       checkSnowDoor();
        checkInfernoDoor();
        t2Start();
    }
@@ -169,4 +177,9 @@ public class Kyobashi extends Trap
        if (ninja.checkDoorT21()==true)
             Greenfoot.setWorld(new T21(ninja));
     }
+       public void checkSnowDoor()
+   {
+       if(ninja.checkSnowDoor()==true)
+            Greenfoot.setWorld(new Snow1(ninja));
+   }
 }

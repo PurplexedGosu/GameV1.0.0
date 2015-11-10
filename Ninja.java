@@ -59,6 +59,7 @@ public class Ninja extends Heroes
         shootShuriken(); // Implements ranged attack
         minionAttack();
         damageRangedMinion();
+        damageRangedDashBoss();
         transparent();
         powerBarCount();
         addPower();
@@ -338,7 +339,18 @@ public class Ninja extends Heroes
         }
         return false;
     }
-   
+       public boolean checkSnowDoor()
+    {
+        if(getWorld().getObjects(Pictures.class).size()!=0)
+        {
+        Actor actor = getOneIntersectingObject(SnowDoor.class);
+        if(actor!=null)
+            return true;
+        else 
+            return false;
+        }
+        return false;
+    }
     public boolean checkInfernoDoor()
     {
         if(getWorld().getObjects(Pictures.class).size()!=0)
@@ -368,6 +380,18 @@ public class Ninja extends Heroes
             getWorld().addObject(ninjaBlood, getX(), getY());
         }
     }
+        public void damageRangedDashBoss()
+    {
+        DashDarkness dashdarkness = (DashDarkness) getOneIntersectingObject(DashDarkness.class);
+        if(dashdarkness!=null&&!powerUpTwo)
+        {
+            ninjahp-=dashdarkness.getDamage();
+            NinjaBlood ninjaBlood = new NinjaBlood();
+            getWorld().addObject(ninjaBlood, getX(), getY());
+        }
+
+    }
+    
     // "Currently under ranged minion" Melee minion AI End [Hayden] 
        public void powerUpOne(){
         if (powerBar >= 1  && (canMoveUp() || canMoveDown() || canMoveLeft() || canMoveRight())){
@@ -387,7 +411,7 @@ public class Ninja extends Heroes
             speedMultiplier = 2;
         }
     }
-        public void powerUpTwo(){
+       public void powerUpTwo(){
             if(powerBar>0&&(Greenfoot.isKeyDown("'") || Greenfoot.isKeyDown("r")))
             {
                 getImage().setTransparency(100);
@@ -396,14 +420,16 @@ public class Ninja extends Heroes
             }
             else
                 powerUpTwo = false;
+                
     }
+    
         public void powerUpThree(){
         if (powerBar>24&&(Greenfoot.isKeyDown("l"))){
             powerUpThree = true;
         }
         else
             powerUpThree = false;
-    }
+        }
         public void addShuriken(){
         Actor SP  = getOneIntersectingObject(addShuriken.class);
         if (SP != null){
