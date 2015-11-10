@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=damage
+comment1.target=Shuriken(int)
+comment2.params=
+comment2.target=void\ NPCS()
+comment3.params=
+comment3.target=void\ DASHBOSS()
+comment4.params=
+comment4.target=int\ getDamage()
+numComments=5
