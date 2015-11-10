@@ -55,10 +55,13 @@ public class Kyobashi extends Trap
         addObject(levelCounter, 355, 730);
         levelCounter.setValue(level);
         doorT10 door = new doorT10();
-        addObject(door, 500, 500);
+        addObject(door, 250, 250);
         
         InfernoDoor infernoDoor = new InfernoDoor();
-        addObject(infernoDoor, 250, 250);
+        addObject(infernoDoor, 500, 500);
+        
+        doorT21 doorT21 = new doorT21();
+        addObject(doorT21, 450, 250);
     }
     
    public void act()
@@ -140,6 +143,7 @@ public class Kyobashi extends Trap
        powerCounter.setValue(ninja.getPOWERBAR());
        checkDoor();
        checkInfernoDoor();
+       t2Start();
    }
    
    public Kyobashi getThisWorld()
@@ -188,4 +192,9 @@ public class Kyobashi extends Trap
        if(ninja.checkInfernoDoor()== true)
             Greenfoot.setWorld(new Inferno1(ninja));
    }
+   public void t2Start()
+   {
+       if (ninja.checkDoorT21()==true)
+            Greenfoot.setWorld(new T21(ninja));
+    }
 }
