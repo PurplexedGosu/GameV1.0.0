@@ -114,7 +114,7 @@ public class DashBoss extends Bosses
             }
         }
         
-            if(getX()<= 375 && getY()>=375){
+            else if(getX()<= 375 && getY()>=375){
             if (Greenfoot.getRandomNumber(100) >= 50){
                 setLocation(550, 550);
             }else{
@@ -122,7 +122,7 @@ public class DashBoss extends Bosses
             }
         }
         
-            if(getX()<= 375 && getY()<=375){
+          else  if(getX()<= 375 && getY()<=375){
             if (Greenfoot.getRandomNumber(100) >= 50){
                 setLocation(200, 550);
             }else{
@@ -130,7 +130,7 @@ public class DashBoss extends Bosses
             }
         }
         
-            if(getX()>=375 && getY()<=375){
+           else if(getX()>=375 && getY()<=375){
             if (Greenfoot.getRandomNumber(100) >= 50){
                 setLocation(550,550);
             }else{
