@@ -1,0 +1,19 @@
+import greenfoot.*;
+
+/**
+ * Write a description of class Flash here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Flash extends Animated
+{
+    /**
+     * Act - do whatever the Flash wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        // Add your action code here.
+    }    
+}
