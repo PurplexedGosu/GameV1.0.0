@@ -72,10 +72,10 @@ public class Darkness extends Projectiles
          else if (st >= 48 && st < 54)
          {
              move(1);
-             if (this != null)
-             {
-                 getWorld().removeObject(this);
-             }
+         }
+         else if (st == 54)
+         {
+             getWorld().removeObject(this);
          }
          
     }    

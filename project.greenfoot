@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Nov 19 12:26:08 PST 2015
+#Thu Nov 19 12:56:13 PST 2015
 dependency598.type=UsesDependency
 target85.height=50
 dependency651.type=UsesDependency
@@ -642,6 +642,7 @@ target20.editor.y=0
 dependency832.to=InfernoBossLevel
 target20.editor.x=40
 dependency739.type=UsesDependency
+class.IntroShurikenWeaponRack.superclass=Items
 dependency281.type=UsesDependency
 dependency111.to=SwordSwing
 dependency559.from=Kyobashi3
@@ -2864,6 +2865,7 @@ target92.type=ClassTarget
 target48.name=K7
 dependency642.from=Boy
 dependency536.from=Kyobashi2
+class.Table.superclass=Obstacles
 dependency500.to=Inferno3
 dependency41.type=UsesDependency
 class.ForestBoss.superclass=Bosses
@@ -2881,6 +2883,7 @@ class.OldManBot.superclass=Animated
 target24.editor.y=43
 target24.editor.x=40
 dependency97.type=UsesDependency
+class.Table.image=Table.png
 dependency584.to=doorT21
 dependency4.to=Ninja
 dependency198.type=UsesDependency
@@ -4168,7 +4171,7 @@ target97.name=Smoke
 dependency691.from=NewIntro2
 dependency585.from=DevelopersWorldMaker
 target31.editor.width=900
-world.lastInstantiated=MainMenu
+world.lastInstantiated=NewIntro3
 target108.type=ClassTarget
 dependency90.type=UsesDependency
 class.Flash.image=Flash.png
@@ -4430,6 +4433,7 @@ dependency15.type=UsesDependency
 dependency288.type=UsesDependency
 dependency341.type=UsesDependency
 dependency811.to=Trap
+class.IntroShurikenWeaponRack.image=ShurikenTable.png
 target73.showInterface=false
 dependency725.from=NewIntro5
 target10.editor.height=683

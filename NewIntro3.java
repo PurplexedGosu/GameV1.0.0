@@ -48,6 +48,17 @@ public class NewIntro3 extends Trap
                 IntroFence fence = new IntroFence();
                 addObject(fence, 50*i+25, 360);
         }
+
+        for (int i = 0; i < 4; i++)
+        {
+            IntroFence fence = new IntroFence();
+            addObject(fence, 525+25, 425+i*50);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            IntroFence fence = new IntroFence();
+            addObject(fence, 250+25, 525+i*50);
+        }
         doorT10 doort10 = new doorT10();
         addObject(doort10, 100, 640);
 
@@ -59,22 +70,21 @@ public class NewIntro3 extends Trap
         addObject(levelCounter, 355, 730);
         levelCounter.setValue(0);
 
-        addObject(boy, 600, 600);
+        addObject(boy, 606, 422);
 
         OldManBot2 oldmanbot = new OldManBot2();
         addObject(oldmanbot, 220, 268);
 
         IntroRM bluemm = new IntroRM(1, 1);
-        addObject(bluemm, 300, 600);
+        addObject(bluemm, 354, 442);
 
-        addShuriken as = new addShuriken();
-        addObject(as, 625, 500);
-        addShuriken as1 = new addShuriken();
-        addObject(as1, 575, 500);
         SwordIcon swordicon = new SwordIcon();
         addObject(swordicon, 89, 373);
         ShurikenIcon shurikenicon = new ShurikenIcon();
         addObject(shurikenicon, 142, 373);
+        IntroShurikenWeaponRack introshurikenweaponrack = new IntroShurikenWeaponRack();
+        addObject(introshurikenweaponrack, 620, 505);
+        introshurikenweaponrack.setLocation(613, 493);
     }
 
     public void act(){
