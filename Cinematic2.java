@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.*;
 /**
  * Write a description of class Cinematic3 here.
  * 
@@ -9,6 +9,10 @@ import greenfoot.*;
 public class Cinematic2 extends Trap
 {
     Ninja ninja;
+    private List<Flash> flash;
+    private int c2t =0;
+    private List<OldManBot5> oldmanbot5;
+    private List<Graitful> graitful;
     /**
      * Constructor for objects of class Cinematic3.
      * 
@@ -22,8 +26,7 @@ public class Cinematic2 extends Trap
     }
     public void prepare(){
         
-        doorT10 door = new doorT10();
-        addObject(door, 40, 375);
+        
         
         
         for (int i = 0; i < 150; i++)
@@ -46,6 +49,10 @@ public class Cinematic2 extends Trap
         TYN tyn = new TYN();
         addObject(tyn, 375, 600);
         addObject(ninja, 700, 375);
+        OldManBot5 OMB5 = new OldManBot5();
+        addObject(OMB5, 160, 375);
+        Graitful g = new Graitful();
+        addObject(g, 160, 200);
         for (int i = 0; i<16; i++)
         {
             Smoke1 fence = new Smoke1();
@@ -84,17 +91,51 @@ public class Cinematic2 extends Trap
         
     }
     public void makedoor(){
-        
+        c2t++;
+        if (c2t >=1003 && c2t <= 1006){
         doorT10 door = new doorT10();
         addObject(door, 60, 375);
+       }
     }
     public void checkDoor()
    {
-       if(ninja.checkDoor()==true)
-            Greenfoot.setWorld(new Kyobashi4(ninja));
+       if(ninja.checkDoor()==true){
+       
+       ninja.setPoints(ninja.getPoints()+50);
+       Greenfoot.setWorld(new Kyobashi4(ninja));
+    }
    }
+       public void flash(){
+        if (c2t <= 1001 && c2t >= 1000){
+            Flash flash = new Flash();
+            addObject(flash, 375, 375);
+        }
+        if (c2t > 1005){
+            flash = getObjects(Flash.class);
+            if(flash.size()>0)
+            removeObject(flash.get(0));
+        }
+        
+    }
+    public void Deletestuff(){
+        if (c2t >=1001 && c2t <= 1005){
+            oldmanbot5 = getObjects(OldManBot5.class);
+            if (oldmanbot5.size()>0)
+            {
+                removeObject(oldmanbot5.get(0));
+            }
+            graitful = getObjects(Graitful.class);
+            if (graitful.size()>0){
+                removeObject(graitful.get(0));
+            }
+            
+        }
+    }
    public void act(){
        checkDoor();
+       makedoor();
+       flash();
+       Deletestuff();
     }
 }
 

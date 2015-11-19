@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class OldManBot4 here.
@@ -10,6 +11,7 @@ public class OldManBot4 extends Animated
 {
     public int omb4hp=1;
     private int delay = 0;
+    private List<InfernoDoor> infernodoor;
     /**
      * Act - do whatever the OldManBot4 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -56,11 +58,28 @@ public class OldManBot4 extends Animated
         {
             Trap trap = (Trap) getWorld();
             trap.getNinja().setPoints(trap.getNinja().getPoints()+50);
-            getWorld().removeObject(this);
-            InfernoDoor door1 = new InfernoDoor();
+            
+            InfernoDoor1 door1 = new InfernoDoor1();
             getWorld().addObject(door1, 660, 375);
             EndStoryKyo3 esk3= new EndStoryKyo3();
+            
+            infernodoor = getWorld().getObjects(InfernoDoor.class);
+            if (infernodoor.size()>0){
+                getWorld().removeObject(infernodoor.get(0));
+                getWorld().removeObject(infernodoor.get(1));
+                getWorld().removeObject(infernodoor.get(2));
+                getWorld().removeObject(infernodoor.get(3));
+                getWorld().removeObject(infernodoor.get(4));
+                getWorld().removeObject(infernodoor.get(5));
+                getWorld().removeObject(infernodoor.get(6));
+                getWorld().removeObject(infernodoor.get(7));
+                getWorld().removeObject(infernodoor.get(8));
+                
+                
+            }
+            
             getWorld().addObject(esk3, 620, 200);
+            getWorld().removeObject(this);
             
         }
     }

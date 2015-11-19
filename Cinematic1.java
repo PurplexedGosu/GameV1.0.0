@@ -95,7 +95,7 @@ public class Cinematic1 extends Trap
         if (timec1 > 405 && timec1 < 407)
         {
             OldManBot4 omb4= new OldManBot4();
-            addObject(omb4, 620, 375);
+            addObject(omb4, 580, 375);
             EndStoryKyo1 esk1 = new EndStoryKyo1();
             addObject(esk1, 620, 200);
         }
@@ -114,12 +114,12 @@ public class Cinematic1 extends Trap
     public void checkDoor()
     {
         if(ninja.checkInfernoDoor()==true)
-            Greenfoot.setWorld(new Cinematic3(ninja));
+            Greenfoot.setWorld(new Cinematic2(ninja));
     }
     public void checkDoor1()
     {
         if(ninja.checkInfernoDoor1()==true)
-            Greenfoot.setWorld(new Cinematic2(ninja));
+            Greenfoot.setWorld(new Cinematic3(ninja));
     }
        public Ninja getNinja()
     {

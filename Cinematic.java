@@ -16,6 +16,7 @@ public class Cinematic extends World
     private Ninja ninja;
     private Boy boy;
     private int volumeControl = 100;
+    
     public Cinematic(Kyobashi cinematic)
     {   
         

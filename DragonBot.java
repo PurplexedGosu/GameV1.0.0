@@ -23,10 +23,15 @@ public class DragonBot extends Animated
     private GreenfootImage right3 = new GreenfootImage("BlueDragon/BlueDragon Right/Dragon_Right_Right2.png");
     // Sprite Implementation End [Sean] + Background Fix for Hit Detection [Bill]
     
+    // sounds from //http://soundbible.com/
+    private GreenfootSound dragonSpawn = new GreenfootSound("Roaring Lion-SoundBible.com-527774719.mp3");
+    private GreenfootSound dragonDeath = new GreenfootSound("Tyrannosaurus Rex-SoundBible.com-2136096676.mp3");
+    
     private double xMovement = -50;
     private double frame = 1;
     public DragonBot()
     {
+        dragonSpawn.play();
     }
 
     // Heroes Move
@@ -46,6 +51,7 @@ public class DragonBot extends Animated
         {
             ArmPool armPool = new ArmPool(false);
             getWorld().addObject(armPool, getX(), getY());
+            dragonDeath.play();
             getWorld().removeObject(this);
         }
         

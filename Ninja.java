@@ -46,11 +46,15 @@ public class Ninja extends Heroes
     private GreenfootImage right1 = new GreenfootImage("Ninja2/Ninja Right/Ninja Right. Left Step.png");
     private GreenfootImage right2 = new GreenfootImage("Ninja2/Ninja Right/Ninja Right. Right Step.png");
     // Ninja sprite images End [Tiffany]
+    //http://soundbible.com/1454-Pain.html
+    private GreenfootSound ninjaDeathSound = new GreenfootSound("Pain-SoundBible.com-1883168362.mp3");
+   
     
     private GreenfootSound swordSound = new GreenfootSound("Blade1.wav");
     public Ninja()
     {
         swordSound.setVolume(20);
+        ninjaDeathSound.setVolume(45);
     }
     public void act() 
     {
@@ -270,6 +274,7 @@ public class Ninja extends Heroes
     {
         if (ninjahp <= 0)
         {
+            ninjaDeathSound.play();
             if (getWorld() instanceof K1)
             {
                 this.setHP(this.getArmor());
